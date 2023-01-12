@@ -21,4 +21,8 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  public completeTask(task: Task): void {
+    task.completed = !task.completed;
+  }
 }

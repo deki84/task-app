@@ -5,6 +5,11 @@
     <span>
       <b>{{ task.title }}</b>
     </span>
-    <span>Completed</span>
+    <span
+      [style.text-decoration]="task.completed ? 'line-through' : ''"
+      (click)="completeTask(task)"
+    >
+      Completed</span
+    >
   </div>
 </div>
