@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  public username: string = 'Paul Smith';
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-
-  public getUsername(): string {
-    return this.username;
+  public getTasks(): Observable<any> {
+    return this.http.get('https://jsonplaceholder.typicode.com/todos?_limit=5');
   }
 }

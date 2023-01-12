@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  public username: string = '';
-
-  constructor(private dataservice: DataService) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.username = this.dataservice.getUsername();
+    this.dataService.getTasks().subscribe(
+      (response: any) => {
+        console.log('Data', response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
